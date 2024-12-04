@@ -54,13 +54,13 @@ def find_edges(image):
 """
 Removes noise from image
 """
-def remove_noise(image):
-    kernel = ones((1,1), uint8)
-    image = cv2.dilate(image, kernel, iterations=1)
-    image = cv2.erode(image, kernel, iterations=1)
-    image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
-    image = cv2.medianBlur(image, 3)
-    return image
+# def remove_noise(image):
+#     kernel = ones((1,1), uint8)
+#     image = cv2.dilate(image, kernel, iterations=1)
+#     image = cv2.erode(image, kernel, iterations=1)
+#     image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+#     image = cv2.medianBlur(image, 3)
+#     return image
 
 def get_random_image_file():    
     num = random.randint(1, 11)

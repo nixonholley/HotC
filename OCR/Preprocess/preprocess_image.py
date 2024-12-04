@@ -1,5 +1,5 @@
+from utils import find_edges, get_random_image_file
 import cv2
-from Preprocess.utils import find_edges
 
 def crop_image_borders(image_file : str):
 
@@ -12,7 +12,8 @@ def crop_image_borders(image_file : str):
     cv2.waitKey(3000)
 
 def main():
-    crop
+    im_file = get_random_image_file()
+    cropped = crop_image_borders(im_file)
 
 if __name__ == '__main__':
     main()
