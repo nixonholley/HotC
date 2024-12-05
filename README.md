@@ -6,16 +6,16 @@ Card scanner and value evaluator, saves card to collection.
 ## Phase 1: Backend Development
 
 ### 1. Set Up Backend Repository
-- [ ] Create a GitHub repository for the backend.
-- [ ] Initialize with:
-  - [ ] A `README.md`
-  - [ ] A `.gitignore` file for Python
-  - [ ] A basic folder structure (`/app`, `/tests`, etc.)
-  - [ ] A `requirements.txt` file for dependencies.
+- [x] Create a GitHub repository for the backend.
+- [x] Initialize with:
+  - [x] A `README.md`
+  - [x] A `.gitignore` file for Python
+  - [x] A basic folder structure (`/app`, `/tests`, etc.)
+  - [x] A `requirements.txt` file for dependencies.
 
 ### 2. Initialize Flask/FastAPI Backend
-- [ ] Create a basic Flask/FastAPI app with a single test route (e.g., `/health` for health checks).
-- [ ] Set up configuration for development and production environments.
+- [x] Create a basic Flask/FastAPI app with a single test route (e.g., `/health` for health checks).
+- [x] Set up configuration for development and production environments.
 
 ### 3. Set Up Docker for Backend
 - [ ] Write a `Dockerfile` for the Flask/FastAPI app.
