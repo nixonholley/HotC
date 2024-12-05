@@ -18,8 +18,8 @@ Card scanner and value evaluator, saves card to collection.
 - [x] Set up configuration for development and production environments.
 
 ### 3. Set Up Docker for Backend
-- [ ] Write a `Dockerfile` for the Flask/FastAPI app.
-- [ ] Test the container locally to ensure it runs without errors.
+- [x] Write a `Dockerfile` for the Flask/FastAPI app.
+- [x] Test the container locally to ensure it runs without errors.
 
 ### 4. Set Up PostgreSQL with Docker Compose
 - [ ] Add a PostgreSQL service in `docker-compose.yml`.

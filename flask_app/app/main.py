@@ -20,7 +20,7 @@ else:
 
 
 # define routes
-@app.route('/health')
+@app.route('/')
 def health_check():
     return {
         "status": "healthy",
@@ -30,7 +30,7 @@ def health_check():
 
 # run
 def main():
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 if __name__ == '__main__':
     main()
