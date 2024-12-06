@@ -43,7 +43,6 @@ Card scanner and value evaluator, saves card to collection.
 ## Phase 2: Mobile App Development
 
 ### 1. Set Up Mobile Repository
-- [ ] Create a GitHub repository for the mobile app.
 - [ ] Initialize with Flutter (or React Native) boilerplate.
 
 ### 2. Build Basic UI
@@ -109,5 +108,6 @@ Card scanner and value evaluator, saves card to collection.
 ---
 
 ## Stretch Goals
+- [ ] **Value Generator**: Use card id to check low, high, avg value of card
 - [ ] **Real-Time Features**: Implement Firebase or Socket.IO for live updates (e.g., multiplayer card games).
 - [ ] **Enhanced Features**: Add user profiles, a card library, or advanced search functionality.
