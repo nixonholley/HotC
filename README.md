@@ -22,8 +22,8 @@ Card scanner and value evaluator, saves card to collection.
 - [x] Test the container locally to ensure it runs without errors.
 
 ### 4. Set Up PostgreSQL with Docker Compose
-- [ ] Add a PostgreSQL service in `docker-compose.yml`.
-- [ ] Configure the backend to connect to the PostgreSQL container.
+- [x] Add a PostgreSQL service in `docker-compose.yml`.
+- [x] Configure the backend to connect to the PostgreSQL container.
 
 ### 5. Develop Image Processing Functionality
 - [ ] Implement the OCR script using OpenCV and pytesseract.
