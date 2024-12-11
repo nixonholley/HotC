@@ -35,20 +35,20 @@ def warp_image(im, roi, im_width, im_height):
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     return cv2.warpPerspective(im, matrix, (im_width, im_height))
 
+def get_largest_contour(contours):
+    largest = np.array([])
+    max_area = 0
+    for c in contours:
+        area = cv2.contourArea(c)
+        if area > 5000:
+            peri = cv2.arcLength(c, True)
+            approx = cv2.approxPolyDP(c, 0.02 * peri, True)
+            if area > max_area and len(approx) == 4:
+                largest = approx
+                max_area = area
+    return largest
+
 def edge_detection(im, im_width = 480, im_height = 640, edit=False):
-    def get_largest_contour(contours):
-        largest = np.array([])
-        max_area = 0
-        for c in contours:
-            area = cv2.contourArea(c)
-            if area > 5000:
-                peri = cv2.arcLength(c, True)
-                approx = cv2.approxPolyDP(c, 0.02 * peri, True)
-                if area > max_area and len(approx) == 4:
-                    largest = approx
-                    max_area = area
-        return largest
-    
     init_trackbars()
 
     # resize image
@@ -60,6 +60,7 @@ def edge_detection(im, im_width = 480, im_height = 640, edit=False):
     # add gaussian blur
     im_blur = cv2.GaussianBlur(im_gray, (5,5), 1)
 
+    # loop to adjust Trackbar values
     while True:
         # get track bar values
         thresh = valTrackbars()
@@ -80,6 +81,7 @@ def edge_detection(im, im_width = 480, im_height = 640, edit=False):
         new_im = new_im[20:new_im.shape[0]-20, 20:new_im.shape[1]-20] 
         cv2.imshow('Image', new_im)
         
+        # press q to break loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 

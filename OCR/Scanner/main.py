@@ -1,10 +1,12 @@
 import cv2
 
-from utils import get_random_image_file
+from utils import get_random_image_file, select_roi
 from edge_detection import edge_detection
 from image_to_string import image_to_string
 
 import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe" # how to add tesseract to docker
 
 def main():
     # gets random image file from CardImages library
@@ -13,8 +15,10 @@ def main():
 
     # finds edges of card and creates new image
     im = edge_detection(im)
-    
-    cv2.imwrite('./temp/image_to_string.jpg', im) #tempS
+
+    # OCR
+    text = image_to_string(im)
+    print(text)
     
 if __name__ == '__main__':
     main()

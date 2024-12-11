@@ -1,6 +1,19 @@
 import random
+import cv2
 
 def get_random_image_file():    
     num = random.randint(1, 11)
     im_file = f'./OCR/CardImages/index{num}.jpg'
     return im_file
+
+def select_roi(im, region):
+    roi = cv2.selectROI(f"Select {region}", im, showCrosshair=True, fromCenter=False)
+
+    x, y, w, h = map(int, roi)
+    cropped_image = im[y:y+h, x:x+w]
+
+    print(f'x: {x}, y: {y}, w: {w}, h: {h}')
+
+    cv2.imwrite('./temp/roi.jpg', cropped_image)
+
+    return cropped_image
