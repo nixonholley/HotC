@@ -17,3 +17,26 @@ def select_roi(im, region):
     cv2.imwrite('./temp/roi.jpg', cropped_image)
 
     return cropped_image
+
+def init_trackbars():
+    def on_change(value):
+        pass
+
+    cv2.namedWindow("Trackbars")
+    cv2.resizeWindow("Trackbars", 360, 240)
+    cv2.createTrackbar("Threshold1", "Trackbars", 100, 255, on_change)
+    cv2.createTrackbar("Threshold2", "Trackbars", 89, 255, on_change)
+
+def valTrackbars():
+    threshold1 = cv2.getTrackbarPos("Threshold1", "Trackbars")
+    threshold2 = cv2.getTrackbarPos("Threshold2", "Trackbars")
+    return (threshold1, threshold2)
+
+class Card:
+    def __init__(self, id = 'N/A',  name='N/A', text = 'N/A'):
+        self.name = name
+        self.text = text
+        self.id = id
+
+    def __str__(self):
+        return f'Card[{self.name}]:[{self.id}]\n-Text:\n{self.text}'

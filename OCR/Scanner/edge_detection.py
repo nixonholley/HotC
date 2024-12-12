@@ -1,19 +1,6 @@
 import cv2
 import numpy as np
-
-def init_trackbars():
-    def on_change(value):
-        pass
-
-    cv2.namedWindow("Trackbars")
-    cv2.resizeWindow("Trackbars", 360, 240)
-    cv2.createTrackbar("Threshold1", "Trackbars", 100, 255, on_change)
-    cv2.createTrackbar("Threshold2", "Trackbars", 89, 255, on_change)
-
-def valTrackbars():
-    threshold1 = cv2.getTrackbarPos("Threshold1", "Trackbars")
-    threshold2 = cv2.getTrackbarPos("Threshold2", "Trackbars")
-    return (threshold1, threshold2)
+from utils import valTrackbars, init_trackbars
 
 def reorder_points(points):
     points = points.reshape((4,2))
@@ -83,6 +70,7 @@ def edge_detection(im, im_width = 480, im_height = 640, edit=False):
         
         # press q to break loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            cv2.destroyAllWindows()
             break
 
     return new_im
