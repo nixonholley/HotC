@@ -47,9 +47,11 @@ def edge_detection(im, im_width = 480, im_height = 640, edit=False):
     # add gaussian blur
     im_blur = cv2.GaussianBlur(im_gray, (5,5), 1)
 
+    roi = None
     # loop to adjust Trackbar values
     while True:
         # get track bar values
+        im_copy = im.copy()
         thresh = valTrackbars()
 
         # apply canny blur
@@ -63,14 +65,15 @@ def edge_detection(im, im_width = 480, im_height = 640, edit=False):
         # find contours
         contours, hierarchy = cv2.findContours(im_erode, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         roi = get_largest_contour(contours)
-        roi = reorder_points(roi)
-        new_im = warp_image(im, roi, im_width, im_height)
-        new_im = new_im[20:new_im.shape[0]-20, 20:new_im.shape[1]-20] 
-        cv2.imshow('Image', new_im)
+        cv2.drawContours(im, [roi], 0, (0, 255, 0), 3)
+        cv2.imshow('Image', im_copy)
         
         # press q to break loop
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cv2.destroyAllWindows()
             break
 
+    roi = reorder_points(roi)
+    new_im = warp_image(im, roi, im_width, im_height)
+    new_im = new_im[20:new_im.shape[0]-20, 20:new_im.shape[1]-20] 
     return new_im

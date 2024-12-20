@@ -6,7 +6,7 @@ from image_to_string import image_to_string
 
 import pytesseract
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe" # how to add tesseract to docker
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe" # how to add tesseract to docker?
 
 def main():
     # gets random image file from CardImages library

@@ -2,7 +2,7 @@ import random
 import cv2
 
 def get_random_image_file():    
-    num = random.randint(1, 11)
+    num = random.randint(12, 14)
     im_file = f'./OCR/CardImages/index{num}.jpg'
     return im_file
 
@@ -24,8 +24,8 @@ def init_trackbars():
 
     cv2.namedWindow("Trackbars")
     cv2.resizeWindow("Trackbars", 360, 240)
-    cv2.createTrackbar("Threshold1", "Trackbars", 100, 255, on_change)
-    cv2.createTrackbar("Threshold2", "Trackbars", 89, 255, on_change)
+    cv2.createTrackbar("Threshold1", "Trackbars", 167, 255, on_change)
+    cv2.createTrackbar("Threshold2", "Trackbars", 121, 255, on_change)
 
 def valTrackbars():
     threshold1 = cv2.getTrackbarPos("Threshold1", "Trackbars")
