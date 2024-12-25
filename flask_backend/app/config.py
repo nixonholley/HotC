@@ -3,7 +3,7 @@ import os
 class Config:
     DEBUG = os.getenv('DEBUG', 'False') == 'True'
     ENV = os.getenv('ENV', 'development')
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('TRACK_MODIFICATIONS', 'FALSE') == 'TRUE'
     SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 

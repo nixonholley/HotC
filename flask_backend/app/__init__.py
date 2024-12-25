@@ -11,10 +11,10 @@ from dotenv import load_dotenv
 # Load environment from .env file
 load_dotenv()
 
-# better to init oustide of function to avoid cyclic imports
-db = SQLAlchemy()
+# # better to init oustide of function to avoid cyclic imports
+# db = SQLAlchemy()
 
-def __init_app__():
+def __init_app__(db):
     # init app
     app = Flask(__name__)
 
