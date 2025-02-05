@@ -10,7 +10,7 @@ temp/
 
 # React App
 # Node modules
-/node_modules/
+node_modules/
 
 # Android and iOS builds (React Native platform folders)
 android/
