@@ -1,14 +1,63 @@
 import React from "react";
-import { Button } from "../node_modules/mui/material";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const HomePage: React.FC = () => {
+// Define the stack navigator type
+type RootStackParamList = {
+  Home: undefined;
+  Login: undefined;
+};
+
+type HomePageProps = {
+  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+};
+
+const HomePage: React.FC<HomePageProps> = ({ navigation }) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold text-gray-900">Welcome to Cardify</h1>
-      <p className="text-lg text-gray-600 mt-2">Card Scanner and Value Evaluator</p>
-      <Button className="mt-4 px-6 py-2 text-lg">Login</Button>
-    </div>
+    <View style={styles.container}>
+      <Text style={styles.header}>Welcome to Cardify</Text>
+      <Text style={styles.subHeader}>Card Scanner and Value Evaluator</Text>
+      
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate('Login')}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
+    padding: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  subHeader: {
+    fontSize: 18,
+    color: "#666",
+    marginTop: 8,
+  },
+  button: {
+    marginTop: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    backgroundColor: "#3b82f6",
+    borderRadius: 8,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: "#fff",
+    textAlign: "center",
+  },
+});
 
 export default HomePage;
