@@ -14,7 +14,6 @@ temp/
 
 # Android and iOS builds (React Native platform folders)
 android/
-ios/
 
 # Vendor folder (if it contains third-party dependencies or generated files)
 vendor/
